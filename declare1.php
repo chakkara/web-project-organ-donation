@@ -1,0 +1,6 @@
+<?php
+session_start();
+$conn=mysqli_connect("localhost","root","","organ_donation") or die("failed:" . mysqli_connect_error());
+$u_email=$_SESSION['email'];
+$sql=mysqli_query($conn,"update organs set ready=1 where donor_id='$u_email'") or die(mysqli_error($conn));
+?>
